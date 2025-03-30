@@ -1,8 +1,8 @@
 .paw-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 0;
-    pointer-events: none;
-    background: #c8bbe7; 
-  }
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:#f3f0ff;
+}

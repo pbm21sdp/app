@@ -4,10 +4,8 @@ const api = axios.create({
   baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
 });
 
-// Mock data pentru development
 if (process.env.NODE_ENV === 'development') {
   api.interceptors.response.use((response) => {
-    // Simulează răspuns API pentru /api/animals
     if (response.config.url === '/api/animals') {
       return {
         data: [
@@ -21,7 +19,6 @@ if (process.env.NODE_ENV === 'development') {
             photos: ["/golden-retriever.jpg"],
             description: "Friendly and energetic, loves playing fetch"
           },
-          // Adaugă mai multe animale după același pattern
         ],
         status: 200,
       };

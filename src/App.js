@@ -1,11 +1,9 @@
-// src/App.js
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Login from './pages/Login';
 import AnimalList from './pages/AnimalList';
 import EmployeeLogin from './pages/EmployeeLogin';
 import AnimalDetails from './pages/AnimalDetails'; 
 
-// Adaugă export default corect
 function App() {
   return (
     <Router>
@@ -19,4 +17,4 @@ function App() {
   );
 }
 
-export default App; // Export default obligatoriu
+export default App; 

@@ -1,4 +1,3 @@
-// PawBackground.js
 import React, { useRef, useEffect } from 'react';
 import '../styles/PawBackground.css';
 
@@ -9,6 +8,7 @@ const PawBackground = () => {
   const lastMousePos = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
+    console.log('Canvas initialized:', canvasRef.current);
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     

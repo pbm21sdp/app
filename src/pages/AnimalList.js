@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
+import PawBackground from '../components/PawBackground';
 import { useNavigate } from 'react-router-dom';
 import axios from '../utils/api';
 import AnimalCard from '../components/AnimalCard';
 import '../styles/AnimalList.css';
-import { FaHome } from 'react-icons/fa';
 
 const AnimalList = () => {
   const [animals, setAnimals] = useState([]);
@@ -26,26 +26,29 @@ const AnimalList = () => {
   }, []);
 
   return (
-    <div className="animal-list-container">
-      <button 
-        className="back-home-button"
-        onClick={() => navigate('/')}
-      >
-        <FaHome />
-        Back to Home
-      </button>
+    <div className="animal-list-wrapper">
+      <PawBackground />
       
-      <h1 className="page-title">Our Furry Friends 🐾</h1>
-      
-      {isLoading ? (
-        <div className="loading-spinner">Loading...</div>
-      ) : (
-        <div className="animal-grid">
-          {animals.map(animal => (
-            <AnimalCard key={animal.id} animal={animal} />
-          ))}
-        </div>
-      )}
+      <div className="animal-list-container">
+        <button 
+          className="back-home-button"
+          onClick={() => navigate('/')}
+        >
+          ← Back to Home
+        </button>
+
+        <h1 className="page-title">Our Furry Friends 🐾</h1>
+
+        {isLoading ? (
+          <div className="loading-spinner">Loading animals...</div>
+        ) : (
+          <div className="animal-grid">
+            {animals.map(animal => (
+              <AnimalCard key={animal.id} animal={animal} />
+            ))}
+          </div>
+        )}
+      </div>
     </div>
   );
 };
