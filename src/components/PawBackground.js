@@ -18,10 +18,10 @@ const PawBackground = () => {
         this.y = y;
         this.size = isMouseGenerated 
           ? Math.random() * 15 + 10  
-          : Math.random() * 25 + 15; 
+          : Math.random() * 35 + 15; 
         this.rotation = Math.random() * Math.PI * 2;
         this.opacity = 1;
-        this.life = 1;
+        this.life = 1.5;
         this.color = `hsl(270, ${isMouseGenerated ? 55 : 45}%, ${isMouseGenerated ? 75 : 85}%)`;
       }
 
@@ -53,9 +53,9 @@ const PawBackground = () => {
       }
 
       update() {
-        this.opacity *= 0.96;
-        this.life -= 0.015;
-        this.y += 0.5;
+        this.opacity *= 0.97;
+        this.life -= 0.008;
+        this.y += 0.3;
       }
     }
 
@@ -84,11 +84,14 @@ const PawBackground = () => {
         }
       }
 
-      if(Math.random() < 0.06) {
-        paws.current.push(new Paw(
-          Math.random() * canvas.width,
-          Math.random() * canvas.height
-        ));
+      if(Math.random() < 0.1) {
+        const labutePerGrupa = Math.floor(Math.random() * 4) + 3; 
+        for(let i = 0; i < labutePerGrupa; i++) {
+          paws.current.push(new Paw(
+            Math.random() * canvas.width,
+            Math.random() * canvas.height
+          ));
+        }
       }
 
       paws.current = paws.current.filter(paw => {
